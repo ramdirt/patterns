@@ -1,0 +1,78 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+body {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arena {
+    width: 500px;
+    height: 500px;
+    background-color: azure;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.hero {
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border-radius: 50px;
+
+    &_number {
+        font-size: 15px;
+        font-weight: 600;
+        color: black;
+    }
+
+    &_health {
+        font-size: 30px;
+        font-weight: 600;
+        color: black;
+    }
+}
+
+.enemy {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(212, 67, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border-radius: 50px;
+
+    &_number {
+        font-size: 15px;
+        font-weight: 600;
+        color: black;
+    }
+
+    &_health {
+        font-size: 30px;
+        font-weight: 600;
+        color: black;
+    }
+}
+
+.enemies {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
