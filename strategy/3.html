@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        class Character {
+            constructor() {
+                this._type = null;
+            }
+            set setWeapon(weapon) {
+                this._type = weapon;
+            }
+            get setWeapon() {
+                return this._weaponBehavior
+            }
+            fight() {
+                this._type.useWeapon();
+            }
+        }
+
+        class CharacterKing extends Character {
+            horn() {
+                console.log('Орать')
+            }
+        }
+
+        class Weapon {
+            constructor() {
+                this._type = null;
+            }
+            set type(weapon) {
+                this._type = weapon
+            }
+            get type() {
+                return this._type
+            }
+            useWeapon() {
+                if (this._type != null) {
+                    console.log(this._type.type)
+                } else {
+                    console.log('Оружие не выбрано')
+                }
+                
+            }
+        }
+
+        class SwordBehavior {
+            constructor() {
+                this.type = 'Меч'
+            }
+        }
+        class AxeBehavior {
+            constructor() {
+                this.type = 'Топор'
+            }
+        }
+
+        const hero = new CharacterKing();
+
+        const weapon = new Weapon();
+
+        const sword = new SwordBehavior();
+        const axe = new AxeBehavior();
+
+        weapon.type = axe;
+        hero.setWeapon = weapon
+        hero.fight();
+
+
+
+    </script>
+</body>
+</html>

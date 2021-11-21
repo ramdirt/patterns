@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        class StrategyManager {
+            constructor() {
+                this._strategies = [];
+            }
+            addStrategy(strategy) {
+                this._strategies = [...this._strategies, strategy];
+            }
+            getStrategy(name) {
+                return this._strategies.find(strategy => strategy._name === name);
+            }
+            }
+
+        class Strategy {
+            constructor(name, handler) {
+                this._name = name;
+                this._handler = handler;
+            }
+            doAction() {
+                this._handler();
+            }
+        }
+
+        // Client-Context
+        const strategyManager = new StrategyManager();
+        const strategy1 = new Strategy('strategy1', () => console.log('Strategy1'));
+        const strategy2 = new Strategy('strategy2', () => console.log('Strategy2'));
+
+        strategyManager.addStrategy(strategy1);
+        strategyManager.addStrategy(strategy2);
+
+        // Выбор первой стратегии.
+        const strategyA = strategyManager.getStrategy('strategy1');
+        strategyA.doAction();
+
+        // Выбор второй стратегии.
+        const strategyB = strategyManager.getStrategy('strategy2');
+        strategyB.doAction();
+
+        // Выбо не существующей стратегии.
+        const strategyC = strategyManager.getStrategy('strategy3');
+
+        try {
+            strategyC.doAction();
+        } catch (err) {
+            console.error('Caught Error');
+            console.error(err);
+        }
+
+
+
+    </script>
+</body>
+</html>
