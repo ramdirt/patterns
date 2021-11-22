@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        class Duck {
+            constructor() {
+                this._flyBehavior = null;
+                this._quackBehavior = null;
+            }
+
+            set flyBehavior(fly) {
+                this._flyBehavior = fly;
+            }
+            get flyBehavior() {
+                return this._flyBehavior
+            }
+
+            set quackBehavior(quack) {
+                this._quackBehavior = quack;
+            }
+            get quackBehavior() {
+                return this._quackBehavior
+            }
+
+            display() {
+                console.log('Это простая утка')
+            }
+
+            fly() {
+                this._flyBehavior.fly()
+            }
+
+            quack() {
+                this._quackBehavior.quack()
+            }
+            
+        }
+
+        class MallardDuct extends Duck {
+            display() {
+                console.log('Это утка Маллард')
+            }
+        }
+
+        class FlyWithWings {
+            fly() {
+                console.log('Полетела')
+            }
+        }
+
+        class FlyNoWay {
+            fly() {
+                console.log('Эта утка не летает!')
+            }
+        }
+
+        class Quack {
+            quack() {
+                console.log('Кряк')
+            }
+        }
+
+        class Squeak {
+            quack() {
+                console.log('Пищание резиновой утки')
+            }
+        }
+
+
+
+        const duck = new MallardDuct();
+        const flyWithWings = new FlyWithWings();
+        const quack = new Quack();
+        const squeak = new Squeak();
+        duck.display()
+        duck.flyBehavior = flyWithWings;
+        duck.quackBehavior = quack;
+        duck.fly();
+        duck.quack();
+        duck.quackBehavior = squeak;
+        duck.quack();
+    </script>
+</body>
+</html>
